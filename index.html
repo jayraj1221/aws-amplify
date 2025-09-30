@@ -38,11 +38,17 @@
             const apiUrl = 'https://4ofrwr0q18.execute-api.eu-north-1.amazonaws.com/prod/add';
 
             try {
-                const response = await fetch(apiUrl, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ a: parseInt(a), b: parseInt(b) })
-                });
+const response = await fetch(apiUrl, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+        body: JSON.stringify({
+            a: parseInt(a),
+            b: parseInt(b)
+        })
+    })
+});
+
 
                 const data = await response.json();
                 if (data.sum !== undefined) {
